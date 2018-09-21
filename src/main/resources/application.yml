@@ -1,0 +1,9 @@
+# All properties:
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+debug: false
+trace: false
+logging:
+  level:
+    root: WARN
+    org.springframework.web: DEBUG
+    logging.level.org.hibernate: ERROR

@@ -1,0 +1,4 @@
+FROM maven
+COPY ./pom.xml /restlater/pom.xml
+WORKDIR /restlater
+RUN mvn dependency:resolve

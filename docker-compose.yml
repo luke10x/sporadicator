@@ -1,0 +1,28 @@
+version: '3.2'
+
+services:
+
+  backend:
+    image: php:7.2-apache
+    volumes:
+      - ./extra/backend.php:/var/www/html/index.php
+    networks:
+      - restlater-network
+
+  restlater:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/restlater
+    networks:
+      - restlater-network
+    command: "mvn spring-boot:run"
+    user: "1000:1000"
+    ports:
+      - 8080:8080
+      - 8081:8081
+
+networks:
+  restlater-network:
+
