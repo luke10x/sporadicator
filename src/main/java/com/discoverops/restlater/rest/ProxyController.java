@@ -15,7 +15,7 @@ import java.util.UUID;
 public class ProxyController {
 
     @Autowired
-    ConnectionRepository applicationScopedBean;
+    ConnectionRepository connectionRepository;
 
     @Autowired
     ResponseRepository responseRepository;
@@ -31,7 +31,7 @@ public class ProxyController {
 
         HttpURLConnection con = connectionFactory.create(method, requestEntity);
         UUID uuid = UUID.randomUUID();
-        applicationScopedBean.put(uuid, con);
+        connectionRepository.put(uuid, con);
 
         ConnectionTask task = new ConnectionTask(uuid, responseRepository, con);
         threadPool.execute(task);
