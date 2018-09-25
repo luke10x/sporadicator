@@ -1,6 +1,7 @@
 package com.discoverops.restlater.rest;
 
 import com.discoverops.restlater.connection.*;
+import com.discoverops.restlater.rest.Response.ConnectionAccepted;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -27,7 +28,7 @@ public class ProxyController {
     ThreadPool threadPool;
 
     @RequestMapping(value="/**")
-    public String forward(HttpMethod method, HttpEntity<byte[]> requestEntity) throws IOException {
+    public ConnectionAccepted forward(HttpMethod method, HttpEntity<byte[]> requestEntity) throws IOException {
 
         HttpURLConnection con = connectionFactory.create(method, requestEntity);
         UUID uuid = UUID.randomUUID();
@@ -36,6 +37,6 @@ public class ProxyController {
         ConnectionTask task = new ConnectionTask(uuid, responseRepository, con);
         threadPool.execute(task);
 
-        return "UUID: " + uuid.toString();
+        return new ConnectionAccepted(uuid);
     }
 }
