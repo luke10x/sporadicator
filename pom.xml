@@ -39,6 +39,12 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

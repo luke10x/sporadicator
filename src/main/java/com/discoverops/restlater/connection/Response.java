@@ -25,6 +25,4 @@ final public class Response {
 
         return buffer;
     }
-
-
 }
