@@ -3,7 +3,7 @@ package com.discoverops.restlater.rest;
 import com.discoverops.restlater.concurrency.ThreadPool;
 import com.discoverops.restlater.connection.*;
 import com.discoverops.restlater.http.MyUriRequest;
-import com.discoverops.restlater.rest.Response.ConnectionAccepted;
+import com.discoverops.restlater.rest.contract.ConnectionAccepted;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;

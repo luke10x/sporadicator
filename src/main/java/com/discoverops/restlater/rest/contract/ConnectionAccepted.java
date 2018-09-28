@@ -1,4 +1,4 @@
-package com.discoverops.restlater.rest.Response;
+package com.discoverops.restlater.rest.contract;
 
 import java.util.UUID;
 
