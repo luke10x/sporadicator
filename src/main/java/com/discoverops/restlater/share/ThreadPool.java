@@ -1,4 +1,4 @@
-package com.discoverops.restlater.concurrency;
+package com.discoverops.restlater.share;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

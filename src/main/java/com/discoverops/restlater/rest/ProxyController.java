@@ -1,14 +1,14 @@
 package com.discoverops.restlater.rest;
 
-import com.discoverops.restlater.concurrency.ThreadPool;
+import com.discoverops.restlater.share.ThreadPool;
 import com.discoverops.restlater.domain.*;
 import com.discoverops.restlater.http.MyUriRequest;
 import com.discoverops.restlater.rest.contract.ConnectionAccepted;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
@@ -23,26 +23,20 @@ public class ProxyController {
     @Autowired
     FutureResponseRepository futureResponseRepository;
 
-    @Autowired
-    ThreadPool threadPool;
+    @Autowired()
+    @Qualifier("defaultClient")
+    Client client;
 
     @RequestMapping(value="/**")
     public ConnectionAccepted forward(HttpMethod method, HttpEntity<byte[]> requestEntity) throws IOException {
 
         UUID uuid = UUID.randomUUID();
 
-        CloseableHttpClient client = HttpClients.createDefault();
+        HttpUriRequest restRequest = new MyUriRequest(method.toString(), "http://backend/index.php");
 
-        HttpUriRequest request = new MyUriRequest(method.toString(), "http://backend/index.php");
-
-        FutureTask<Response> futureResponse = new FutureTask<>(() -> {
-            CloseableHttpResponse httpResponse = client.execute(request);
-            return new Response(httpResponse.getEntity().getContent());
-        });
+        Future<Response> futureResponse = client.executeAsync(new Request(restRequest));
 
         futureResponseRepository.put(uuid, futureResponse);
-
-        threadPool.execute(futureResponse);
 
         return new ConnectionAccepted(uuid);
     }
