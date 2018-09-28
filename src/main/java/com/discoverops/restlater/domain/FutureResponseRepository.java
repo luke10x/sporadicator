@@ -1,4 +1,4 @@
-package com.discoverops.restlater.connection;
+package com.discoverops.restlater.domain;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

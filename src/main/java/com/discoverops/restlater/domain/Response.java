@@ -1,4 +1,4 @@
-package com.discoverops.restlater.connection;
+package com.discoverops.restlater.domain;
 
 import java.io.BufferedReader;
 import java.io.IOException;

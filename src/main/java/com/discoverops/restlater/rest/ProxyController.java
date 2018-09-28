@@ -1,7 +1,7 @@
 package com.discoverops.restlater.rest;
 
 import com.discoverops.restlater.concurrency.ThreadPool;
-import com.discoverops.restlater.connection.*;
+import com.discoverops.restlater.domain.*;
 import com.discoverops.restlater.http.MyUriRequest;
 import com.discoverops.restlater.rest.contract.ConnectionAccepted;
 import org.apache.http.client.methods.CloseableHttpResponse;
