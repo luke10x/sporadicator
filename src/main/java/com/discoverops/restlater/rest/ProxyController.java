@@ -2,6 +2,7 @@ package com.discoverops.restlater.rest;
 
 import com.discoverops.restlater.concurrency.ThreadPool;
 import com.discoverops.restlater.connection.*;
+import com.discoverops.restlater.http.MyUriRequest;
 import com.discoverops.restlater.rest.Response.ConnectionAccepted;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -34,23 +35,14 @@ public class ProxyController {
 
         HttpUriRequest request = new MyUriRequest(method.toString(), "http://backend/index.php");
 
-        Future<Response> futureResponse = new FutureTask<Response>(new Callable<Response>() {
-            @Override
-            public Response call() throws Exception {
-                CloseableHttpResponse httpResponse = client.execute(request);
-                Response response = new Response(httpResponse.getEntity().getContent());
-                return response;
-            }
+        FutureTask<Response> futureResponse = new FutureTask<>(() -> {
+            CloseableHttpResponse httpResponse = client.execute(request);
+            return new Response(httpResponse.getEntity().getContent());
         });
-        
+
         futureResponseRepository.put(uuid, futureResponse);
 
-        threadPool.execute(new Runnable() {
-            @Override
-            public void run() {
-                ((FutureTask<Response>) futureResponse).run();
-            }
-        });
+        threadPool.execute(futureResponse);
 
         return new ConnectionAccepted(uuid);
     }

@@ -1,4 +1,4 @@
-package com.discoverops.restlater.connection;
+package com.discoverops.restlater.http;
 
 import org.apache.http.client.methods.HttpRequestBase;
 
