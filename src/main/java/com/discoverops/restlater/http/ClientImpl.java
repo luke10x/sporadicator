@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
-@Component("defaultClient")
+@Component("httpClient")
 public class ClientImpl implements Client {
 
     @Autowired

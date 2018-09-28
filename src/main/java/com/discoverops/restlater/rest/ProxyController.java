@@ -24,17 +24,18 @@ public class ProxyController {
     FutureResponseRepository futureResponseRepository;
 
     @Autowired()
-    @Qualifier("defaultClient")
+    @Qualifier("httpClient")
     Client client;
 
     @RequestMapping(value="/**")
     public ConnectionAccepted forward(HttpMethod method, HttpEntity<byte[]> requestEntity) throws IOException {
 
-        UUID uuid = UUID.randomUUID();
-
         HttpUriRequest restRequest = new MyUriRequest(method.toString(), "http://backend/index.php");
+        Request request = new Request(restRequest);
 
-        Future<Response> futureResponse = client.executeAsync(new Request(restRequest));
+        Future<Response> futureResponse = client.executeAsync(request);
+
+        UUID uuid = UUID.randomUUID();
 
         futureResponseRepository.put(uuid, futureResponse);
 
