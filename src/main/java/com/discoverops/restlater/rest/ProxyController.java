@@ -18,8 +18,8 @@ public class ProxyController {
     RequestFactory requestFactory;
 
     @Autowired
-    @Qualifier("httpClient")
-    Client client;
+    @Qualifier("httpAsyncClient")
+    AsyncClient asyncClient;
 
     @Autowired
     FutureResponseRepository futureResponseRepository;
@@ -29,7 +29,7 @@ public class ProxyController {
 
         Request request = requestFactory.create(method);
 
-        FutureResponse futureResponse = client.executeAsync(request);
+        FutureResponse futureResponse = asyncClient.executeAsync(request);
 
         futureResponseRepository.save(futureResponse);
 

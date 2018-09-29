@@ -1,7 +1,5 @@
 package com.discoverops.restlater.domain;
 
-public interface Client {
-
+public interface AsyncClient {
     public FutureResponse executeAsync(Request request);
-
 }
