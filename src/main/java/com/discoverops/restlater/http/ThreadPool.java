@@ -1,4 +1,4 @@
-package com.discoverops.restlater.share;
+package com.discoverops.restlater.http;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 @Scope(value = "singleton")
 @Component
-public class ThreadPool {
+class ThreadPool {
     private final int nThreads;
     private final PoolWorker[] threads;
     private final LinkedBlockingQueue<Runnable> queue;

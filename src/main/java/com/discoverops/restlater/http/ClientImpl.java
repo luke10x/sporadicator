@@ -1,13 +1,15 @@
 package com.discoverops.restlater.http;
 
+import com.discoverops.restlater.http.factory.HttpClientFactory;
+import com.discoverops.restlater.http.factory.HttpRequestFactory;
+
 import com.discoverops.restlater.domain.Client;
 import com.discoverops.restlater.domain.Request;
 import com.discoverops.restlater.domain.Response;
-import com.discoverops.restlater.share.ThreadPool;
-import org.apache.http.client.methods.CloseableHttpResponse;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,17 +20,24 @@ import java.util.concurrent.FutureTask;
 public class ClientImpl implements Client {
 
     @Autowired
+    HttpRequestFactory httpRequestFactory;
+
+    @Autowired
+    HttpClientFactory httpClientFactory;
+
+    @Autowired
     ThreadPool threadPool;
 
     @Override
     public Future<Response> executeAsync(Request request) {
 
-        HttpUriRequest httpRequest = request.getHttpRequest();
+        HttpUriRequest apacheHttpRequest = httpRequestFactory.create(request);
 
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpClient apacheHttpClient = httpClientFactory.create();
+
         FutureTask<Response> futureResponse = new FutureTask<>(() -> {
-            CloseableHttpResponse httpResponse = httpClient.execute(httpRequest);
-            return new Response(httpResponse.getEntity().getContent());
+            HttpResponse apacheHttpResponse = apacheHttpClient.execute(apacheHttpRequest);
+            return new Response(apacheHttpResponse.getEntity().getContent());
         });
 
         threadPool.execute(futureResponse);

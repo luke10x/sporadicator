@@ -1,12 +1,9 @@
 package com.discoverops.restlater.rest;
 
-import com.discoverops.restlater.share.ThreadPool;
 import com.discoverops.restlater.domain.*;
 import com.discoverops.restlater.http.MyUriRequest;
 import com.discoverops.restlater.rest.contract.ConnectionAccepted;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
