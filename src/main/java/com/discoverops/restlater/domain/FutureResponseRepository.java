@@ -12,15 +12,15 @@ import java.util.concurrent.Future;
 @Component
 public class FutureResponseRepository {
 
-    private Map<UUID, Future<Response>> futureResponseMap;
+    private Map<UUID, FutureResponse> futureResponseMap;
 
     public FutureResponseRepository() {
-        futureResponseMap = new HashMap<UUID, Future<Response>>();
+        futureResponseMap = new HashMap<>();
     }
 
-    public synchronized void put(UUID id, Future<Response> futureResponse)
+    public synchronized void save(FutureResponse futureResponse)
     {
-        futureResponseMap.put(id, futureResponse);
+        futureResponseMap.put(futureResponse.getUUID(), futureResponse);
     }
 
     public synchronized Future<Response> get(UUID id) {

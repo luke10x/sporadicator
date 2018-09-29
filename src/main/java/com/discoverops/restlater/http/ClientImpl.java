@@ -1,5 +1,6 @@
 package com.discoverops.restlater.http;
 
+import com.discoverops.restlater.domain.FutureResponse;
 import com.discoverops.restlater.http.factory.HttpClientFactory;
 import com.discoverops.restlater.http.factory.HttpRequestFactory;
 
@@ -12,9 +13,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
 
 @Component("httpClient")
 public class ClientImpl implements Client {
@@ -29,13 +27,13 @@ public class ClientImpl implements Client {
     ThreadPool threadPool;
 
     @Override
-    public Future<Response> executeAsync(Request request) {
+    public FutureResponse executeAsync(Request request) {
 
         HttpUriRequest apacheHttpRequest = httpRequestFactory.create(request);
 
         HttpClient apacheHttpClient = httpClientFactory.create();
 
-        FutureTask<Response> futureResponse = new FutureTask<>(() -> {
+        FutureResponse futureResponse = new FutureResponse(() -> {
             HttpResponse apacheHttpResponse = apacheHttpClient.execute(apacheHttpRequest);
             return new Response(apacheHttpResponse.getEntity().getContent());
         });
