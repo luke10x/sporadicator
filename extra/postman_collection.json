@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "09dacf09-846c-4bfe-8fec-a623c28c1110",
+		"name": "RestLater",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0.0.0.0:8080/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "742a63d9-fc98-4434-9fdb-111d502937e2",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.environment.set(\"connectionUUID\", jsonData.connectionUUID);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Call For Action"
+				},
+				"url": {
+					"raw": "0.0.0.0:8080/vilkas",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"vilkas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0.0.0.0:8080/task/status/{{connectionUUID}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "0.0.0.0:8080/task/status/{{connectionUUID}}",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"status",
+						"{{connectionUUID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
