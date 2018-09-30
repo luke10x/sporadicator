@@ -27,7 +27,7 @@ public class ProxyController {
     @RequestMapping(value="/**")
     public ConnectionAccepted forward(HttpMethod method, HttpEntity<byte[]> requestEntity) throws IOException {
 
-        Request request = requestFactory.create(method);
+        Request request = requestFactory.create(method, requestEntity);
 
         FutureResponse futureResponse = asyncClient.executeAsync(request);
 
