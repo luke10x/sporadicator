@@ -2,7 +2,7 @@ package com.discoverops.sporadicator.http.factory;
 
 import com.discoverops.sporadicator.domain.Request;
 import com.discoverops.sporadicator.domain.request.Header;
-import com.discoverops.sporadicator.http.MyUriRequest;
+import com.discoverops.sporadicator.http.UniversalUriRequest;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HttpRequestFactory {
     public HttpUriRequest create(Request request) {
-        MyUriRequest httpUriRequest = new MyUriRequest(request.getMethod() , request.getUri());
+        UniversalUriRequest httpUriRequest = new UniversalUriRequest(request.getMethod(), request.getUri());
 
         httpUriRequest.setEntity(new ByteArrayEntity(request.getBody()));
 

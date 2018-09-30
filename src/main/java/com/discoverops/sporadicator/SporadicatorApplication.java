@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RestlaterApplication {
+public class SporadicatorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RestlaterApplication.class, args);
+        SpringApplication.run(SporadicatorApplication.class, args);
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class ClientAsyncImpl implements AsyncClient {
 
     @Autowired
-    HttpClient httpClient;
+    HttpSyncClient httpSyncClient;
 
     @Autowired
     ThreadPool threadPool;
@@ -23,7 +23,7 @@ public class ClientAsyncImpl implements AsyncClient {
     public FutureResponse executeAsync(Request request) {
 
         FutureResponse futureResponse = new FutureResponse(() -> {
-            HttpResponse httpResponse = httpClient.execute(request);
+            HttpResponse httpResponse = httpSyncClient.execute(request);
             return new Response(httpResponse.getEntity().getContent());
         });
 
