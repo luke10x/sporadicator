@@ -1,13 +1,13 @@
 package com.discoverops.restlater.http;
 
-import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 
 import java.net.URI;
 
 /**
  * Request class allowing to pass HTTP method as a constructor variable
  */
-public class MyUriRequest extends HttpRequestBase {
+public class MyUriRequest extends HttpEntityEnclosingRequestBase {
 
     private final String method;
 
