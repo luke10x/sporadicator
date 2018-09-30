@@ -1,10 +1,10 @@
-package com.discoverops.restlater.http;
+package com.discoverops.sporadicator.http;
 
-import com.discoverops.restlater.domain.FutureResponse;
+import com.discoverops.sporadicator.domain.FutureResponse;
 
-import com.discoverops.restlater.domain.AsyncClient;
-import com.discoverops.restlater.domain.Request;
-import com.discoverops.restlater.domain.Response;
+import com.discoverops.sporadicator.domain.AsyncClient;
+import com.discoverops.sporadicator.domain.Request;
+import com.discoverops.sporadicator.domain.Response;
 
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;

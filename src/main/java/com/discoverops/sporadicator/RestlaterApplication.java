@@ -1,4 +1,4 @@
-package com.discoverops.restlater;
+package com.discoverops.sporadicator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

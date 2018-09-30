@@ -1,4 +1,4 @@
-package com.discoverops.restlater.http.factory;
+package com.discoverops.sporadicator.http.factory;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;

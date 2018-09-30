@@ -1,8 +1,8 @@
-package com.discoverops.restlater.http.factory;
+package com.discoverops.sporadicator.http.factory;
 
-import com.discoverops.restlater.domain.Request;
-import com.discoverops.restlater.domain.request.Header;
-import com.discoverops.restlater.http.MyUriRequest;
+import com.discoverops.sporadicator.domain.Request;
+import com.discoverops.sporadicator.domain.request.Header;
+import com.discoverops.sporadicator.http.MyUriRequest;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.springframework.stereotype.Component;

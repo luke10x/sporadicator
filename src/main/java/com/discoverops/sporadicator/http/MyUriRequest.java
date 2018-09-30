@@ -1,4 +1,4 @@
-package com.discoverops.restlater.http;
+package com.discoverops.sporadicator.http;
 
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 

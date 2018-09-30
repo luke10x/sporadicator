@@ -1,8 +1,8 @@
-package com.discoverops.restlater.rest;
+package com.discoverops.sporadicator.rest;
 
-import com.discoverops.restlater.domain.*;
-import com.discoverops.restlater.rest.contract.ConnectionAccepted;
-import com.discoverops.restlater.rest.factory.RequestFactory;
+import com.discoverops.sporadicator.domain.*;
+import com.discoverops.sporadicator.rest.contract.ConnectionAccepted;
+import com.discoverops.sporadicator.rest.factory.RequestFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;

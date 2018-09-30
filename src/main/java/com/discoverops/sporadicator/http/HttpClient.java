@@ -1,8 +1,8 @@
-package com.discoverops.restlater.http;
+package com.discoverops.sporadicator.http;
 
-import com.discoverops.restlater.domain.Request;
-import com.discoverops.restlater.http.factory.HttpClientFactory;
-import com.discoverops.restlater.http.factory.HttpRequestFactory;
+import com.discoverops.sporadicator.domain.Request;
+import com.discoverops.sporadicator.http.factory.HttpClientFactory;
+import com.discoverops.sporadicator.http.factory.HttpRequestFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.discoverops.restlater.domain;
+package com.discoverops.sporadicator.domain;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

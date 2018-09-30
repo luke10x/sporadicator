@@ -1,4 +1,4 @@
-package com.discoverops.restlater.domain;
+package com.discoverops.sporadicator.domain;
 
 import java.io.BufferedReader;
 import java.io.IOException;

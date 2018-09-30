@@ -1,7 +1,7 @@
-package com.discoverops.restlater.rest;
+package com.discoverops.sporadicator.rest;
 
-import com.discoverops.restlater.domain.FutureResponseRepository;
-import com.discoverops.restlater.domain.Response;
+import com.discoverops.sporadicator.domain.FutureResponseRepository;
+import com.discoverops.sporadicator.domain.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

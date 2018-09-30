@@ -1,14 +1,12 @@
-package com.discoverops.restlater.rest.factory;
+package com.discoverops.sporadicator.rest.factory;
 
-import com.discoverops.restlater.domain.Request;
-import com.discoverops.restlater.domain.request.Header;
+import com.discoverops.sporadicator.domain.Request;
+import com.discoverops.sporadicator.domain.request.Header;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 

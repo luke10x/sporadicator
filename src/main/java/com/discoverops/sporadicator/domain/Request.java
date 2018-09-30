@@ -1,6 +1,6 @@
-package com.discoverops.restlater.domain;
+package com.discoverops.sporadicator.domain;
 
-import com.discoverops.restlater.domain.request.Header;
+import com.discoverops.sporadicator.domain.request.Header;
 
 import java.util.List;
 

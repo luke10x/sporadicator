@@ -1,4 +1,4 @@
-package com.discoverops.restlater.domain;
+package com.discoverops.sporadicator.domain;
 
 public interface AsyncClient {
     public FutureResponse executeAsync(Request request);

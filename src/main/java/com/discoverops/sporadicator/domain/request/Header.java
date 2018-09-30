@@ -1,4 +1,4 @@
-package com.discoverops.restlater.domain.request;
+package com.discoverops.sporadicator.domain.request;
 
 public class Header {
 

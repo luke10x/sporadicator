@@ -1,4 +1,4 @@
 FROM maven
-COPY ./pom.xml /restlater/pom.xml
-WORKDIR /restlater
+COPY ./pom.xml /sporadicator/pom.xml
+WORKDIR /sporadicator
 RUN mvn dependency:resolve

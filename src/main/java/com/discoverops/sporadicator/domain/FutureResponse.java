@@ -1,4 +1,4 @@
-package com.discoverops.restlater.domain;
+package com.discoverops.sporadicator.domain;
 
 import java.util.UUID;
 import java.util.concurrent.Callable;

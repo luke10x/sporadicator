@@ -1,4 +1,4 @@
-package com.discoverops.restlater.http;
+package com.discoverops.sporadicator.http;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
