@@ -1,4 +1,4 @@
-package com.discoverops.sporadicator.domain;
+package com.discoverops.sporadicator.domain.response;
 
 import java.io.BufferedReader;
 import java.io.IOException;

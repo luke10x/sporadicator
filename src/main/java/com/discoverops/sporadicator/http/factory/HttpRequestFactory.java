@@ -1,6 +1,6 @@
 package com.discoverops.sporadicator.http.factory;
 
-import com.discoverops.sporadicator.domain.Request;
+import com.discoverops.sporadicator.domain.request.Request;
 import com.discoverops.sporadicator.domain.request.Header;
 import com.discoverops.sporadicator.http.UniversalUriRequest;
 import org.apache.http.client.methods.HttpUriRequest;

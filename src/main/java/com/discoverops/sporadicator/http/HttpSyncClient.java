@@ -1,6 +1,6 @@
 package com.discoverops.sporadicator.http;
 
-import com.discoverops.sporadicator.domain.Request;
+import com.discoverops.sporadicator.domain.request.Request;
 import com.discoverops.sporadicator.http.factory.HttpClientFactory;
 import com.discoverops.sporadicator.http.factory.HttpRequestFactory;
 import org.apache.http.HttpResponse;

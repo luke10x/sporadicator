@@ -1,6 +1,6 @@
 package com.discoverops.sporadicator.rest.factory;
 
-import com.discoverops.sporadicator.domain.Request;
+import com.discoverops.sporadicator.domain.request.Request;
 import com.discoverops.sporadicator.domain.request.Header;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;

@@ -1,5 +1,7 @@
 package com.discoverops.sporadicator.domain;
 
+import com.discoverops.sporadicator.domain.response.FutureResponse;
+import com.discoverops.sporadicator.domain.response.Response;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

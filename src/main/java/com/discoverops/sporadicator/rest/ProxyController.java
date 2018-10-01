@@ -1,6 +1,8 @@
 package com.discoverops.sporadicator.rest;
 
 import com.discoverops.sporadicator.domain.*;
+import com.discoverops.sporadicator.domain.request.Request;
+import com.discoverops.sporadicator.domain.response.FutureResponse;
 import com.discoverops.sporadicator.rest.contract.ConnectionAccepted;
 import com.discoverops.sporadicator.rest.factory.RequestFactory;
 import org.springframework.beans.factory.annotation.Autowired;

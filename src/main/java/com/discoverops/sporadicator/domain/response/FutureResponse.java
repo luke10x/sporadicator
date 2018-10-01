@@ -1,4 +1,4 @@
-package com.discoverops.sporadicator.domain;
+package com.discoverops.sporadicator.domain.response;
 
 import java.util.UUID;
 import java.util.concurrent.Callable;

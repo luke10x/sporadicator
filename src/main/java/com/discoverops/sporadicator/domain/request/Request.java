@@ -1,6 +1,5 @@
-package com.discoverops.sporadicator.domain;
+package com.discoverops.sporadicator.domain.request;
 
-import com.discoverops.sporadicator.domain.request.Header;
 
 import java.util.List;
 
