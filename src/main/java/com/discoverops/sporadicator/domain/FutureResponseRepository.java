@@ -10,8 +10,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.Future;
 
-@Scope(value = "singleton")
-@Component
 public class FutureResponseRepository {
 
     private Map<UUID, FutureResponse> futureResponseMap;
