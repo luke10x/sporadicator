@@ -1,31 +1,26 @@
 package com.discoverops.sporadicator;
 
-import org.apache.catalina.connector.Connector;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.ComponentScan;
+
 
 @SpringBootApplication
-@Configuration
+@ComponentScan(basePackages = "com.discoverops.sporadicator.domain")
 public class SporadicatorApplication {
 
+    protected static class Parent {}
+
     public static void main(String[] args) {
-        SpringApplication.run(SporadicatorApplication.class, args);
-    }
 
-    @Bean
-    public ServletWebServerFactory servletContainer() {
-        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
-        tomcat.addAdditionalTomcatConnectors(createStandardConnector());
-        return tomcat;
-    }
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(Parent.class);
 
-    private Connector createStandardConnector() {
-        Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
-        connector.setPort(8181);
-        return connector;
+        builder.child(ProxyApplication.class)
+                .properties("server.port:8181")
+                .run(args);
+
+        builder.child(ResultApplication.class)
+                .properties("server.port:8282")
+                .run(args);
     }
 }
