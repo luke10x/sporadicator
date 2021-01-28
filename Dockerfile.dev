@@ -1,4 +1,4 @@
 FROM maven
-COPY ./pom.xml /sporadicator/pom.xml
-WORKDIR /sporadicator
+COPY ./pom.xml /h2sproxy/pom.xml
+WORKDIR /h2sproxy
 RUN mvn dependency:resolve

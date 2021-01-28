@@ -7,16 +7,16 @@ services:
     volumes:
       - ./extra/backend.php:/var/www/html/index.php
     networks:
-      - sporadicator-network
+      - h2sproxy-network
 
-  sporadicator:
+  h2sproxy:
     build:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - .:/sporadicator
+      - .:/h2sproxy
     networks:
-      - sporadicator-network
+      - h2sproxy-network
     command: "mvn spring-boot:run"
     user: "1000:1000"
     ports:
@@ -26,5 +26,5 @@ services:
       - 5005:5005
 
 networks:
-  sporadicator-network:
+  h2sproxy-network:
 
