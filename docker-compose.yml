@@ -1,13 +1,11 @@
-version: '3.2'
+version: '3.4'
 
 services:
 
-  backend:
-    image: php:7.2-apache
+  aws:
+    image: amazon/aws-cli
     volumes:
-      - ./extra/backend.php:/var/www/html/index.php
-    networks:
-      - h2sproxy-network
+      - ./extra/aws:/root/.aws
 
   h2sproxy:
     build:
@@ -15,16 +13,31 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - .:/h2sproxy
-    networks:
-      - h2sproxy-network
     command: "mvn spring-boot:run"
-    user: "1000:1000"
     ports:
       - 8080:8080
-      - 8181:8181
-      - 8282:8282
       - 5005:5005
 
-networks:
-  h2sproxy-network:
+  sqs:
+    image: softwaremill/elasticmq-native
+    volumes:
+      - ./extra/sqs/custom.conf:/opt/elasticmq.conf
+    ports:
+      - 9324:9324
+      - 9325:9325
+
+  bus:
+    image: node
+    working_dir: /bus
+    volumes:
+      - ./extra/bus/:/bus
+    entrypoint: "/bin/bash -c"
+    command:
+      - |
+        npm start || (\
+          echo "⛔ \`npm start\` failed, but the container is running..." && \
+          tail -f /dev/null \
+        )
+
+
 
