@@ -1,7 +1,7 @@
-package dev.luke10x.http2sqsproxy.rest.factory;
+package dev.luke10x.h2sproxy.rest.factory;
 
-import dev.luke10x.http2sqsproxy.domain.request.Request;
-import dev.luke10x.http2sqsproxy.domain.request.Header;
+import dev.luke10x.h2sproxy.domain.request.Request;
+import dev.luke10x.h2sproxy.domain.request.Header;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;

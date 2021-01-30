@@ -1,18 +1,14 @@
-package dev.luke10x.http2sqsproxy.domain.response;
+package dev.luke10x.h2sproxy.domain.response;
 
 import java.util.UUID;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.ExecutionException;
 
-public class FutureResponse extends FutureTask<Response> {
-    private final UUID uuid;
+public interface FutureResponse {
+    String getRequestId();
 
-    public FutureResponse(Callable<Response> callable) {
-        super(callable);
-        uuid = UUID.randomUUID();
-    }
+    boolean isCancelled();
 
-    public UUID getUUID() {
-        return uuid;
-    }
+    boolean isDone();
+
+    Response get() throws InterruptedException, ExecutionException;
 }

@@ -1,10 +1,10 @@
-package dev.luke10x.http2sqsproxy.http;
+package dev.luke10x.h2sproxy.http;
 
-import dev.luke10x.http2sqsproxy.domain.response.FutureResponse;
+import dev.luke10x.h2sproxy.domain.response.FutureResponse;
 
-import dev.luke10x.http2sqsproxy.domain.AsyncClient;
-import dev.luke10x.http2sqsproxy.domain.request.Request;
-import dev.luke10x.http2sqsproxy.domain.response.Response;
+import dev.luke10x.h2sproxy.domain.AsyncClient;
+import dev.luke10x.h2sproxy.domain.request.Request;
+import dev.luke10x.h2sproxy.domain.response.Response;
 
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class ClientAsyncImpl implements AsyncClient {
     @Override
     public FutureResponse executeAsync(Request request) {
 
-        FutureResponse futureResponse = new FutureResponse(() -> {
+        HttpFutureResponse futureResponse = new HttpFutureResponse(() -> {
             HttpResponse httpResponse = httpSyncClient.execute(request);
             return new Response(httpResponse.getEntity().getContent());
         });

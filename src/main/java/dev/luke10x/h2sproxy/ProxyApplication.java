@@ -1,6 +1,6 @@
-package dev.luke10x.http2sqsproxy;
+package dev.luke10x.h2sproxy;
 
-import dev.luke10x.http2sqsproxy.rest.ResultController;
+import dev.luke10x.h2sproxy.rest.ResultController;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;

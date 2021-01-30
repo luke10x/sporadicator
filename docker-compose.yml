@@ -10,13 +10,21 @@ services:
   h2sproxy:
     build:
       context: .
-      dockerfile: Dockerfile.dev
     volumes:
       - .:/h2sproxy
-    command: "mvn spring-boot:run"
     ports:
       - 8080:8080
+      - 8181:8181
+      - 8282:8282
       - 5005:5005
+    environment:
+      AWS_ACCESS_KEY_ID: "access-key"
+      AWS_SECRET_ACCESS_KEY: "secret-key"
+    entrypoint: "/bin/bash -c"
+    command:
+      - |
+        mvn spring-boot:run \
+          -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
 
   sqs:
     image: softwaremill/elasticmq-native
@@ -38,6 +46,3 @@ services:
           echo "⛔ \`npm start\` failed, but the container is running..." && \
           tail -f /dev/null \
         )
-
-
-

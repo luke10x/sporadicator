@@ -28,6 +28,9 @@ start-bus:
 start-sqs:
 	docker-compose up -d --force-recreate --build sqs
 
+start-h2sproxy:
+	docker-compose up -d --force-recreate --build h2sproxy
+
 start: start-sqs start-bus
 
 logs:

@@ -1,4 +1,4 @@
-package dev.luke10x.http2sqsproxy.http.factory;
+package dev.luke10x.h2sproxy.http.factory;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;

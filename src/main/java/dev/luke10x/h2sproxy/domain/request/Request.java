@@ -1,5 +1,4 @@
-package dev.luke10x.http2sqsproxy.domain.request;
-
+package dev.luke10x.h2sproxy.domain.request;
 
 import java.util.List;
 

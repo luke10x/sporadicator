@@ -1,7 +1,9 @@
-package dev.luke10x.http2sqsproxy.domain;
+package dev.luke10x.h2sproxy.domain;
 
-import dev.luke10x.http2sqsproxy.domain.request.Request;
-import dev.luke10x.http2sqsproxy.domain.response.FutureResponse;
+import dev.luke10x.h2sproxy.domain.request.Request;
+import dev.luke10x.h2sproxy.domain.response.FutureResponse;
+
+import javax.jms.JMSException;
 
 public interface AsyncClient {
     public FutureResponse executeAsync(Request request);

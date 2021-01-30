@@ -1,18 +1,18 @@
-package dev.luke10x.http2sqsproxy.rest.contract;
+package dev.luke10x.h2sproxy.rest.contract;
 
 import java.util.UUID;
 
 public class ConnectionAccepted {
-    private final UUID connectionUUID;
+    private final String requestId;
 
-    public ConnectionAccepted(UUID connectionUUID) {
-        this.connectionUUID = connectionUUID;
+    public ConnectionAccepted(String requestId) {
+        this.requestId = requestId;
     }
 
     public String getStatus() {
         return "Your query is now being processed";
     }
-    public UUID getConnectionUUID() {
-        return connectionUUID;
+    public String getRequestId() {
+        return requestId;
     }
 }

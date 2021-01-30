@@ -1,26 +1,25 @@
-package dev.luke10x.http2sqsproxy.rest;
+package dev.luke10x.h2sproxy.rest;
 
-import dev.luke10x.http2sqsproxy.domain.FutureResponseRepository;
-import dev.luke10x.http2sqsproxy.domain.response.Response;
+import dev.luke10x.h2sproxy.domain.FutureResponseRepository;
+import dev.luke10x.h2sproxy.domain.response.FutureResponse;
+import dev.luke10x.h2sproxy.domain.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.UUID;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 @RestController
-@RequestMapping(value="/task")
+@RequestMapping(value = "/task")
 public class ResultController {
 
     @Autowired
     FutureResponseRepository futureResponseRepository;
 
     @RequestMapping(value = "/status/{uuid}", method = {RequestMethod.GET})
-    public String status(@PathVariable("uuid") UUID uuid) throws IOException, ExecutionException, InterruptedException {
+    public String status(@PathVariable("uuid") String uuid) throws IOException, ExecutionException, InterruptedException {
 
-        Future<Response> futureResponse = futureResponseRepository.get(uuid);
+        FutureResponse futureResponse = futureResponseRepository.get(uuid);
         if (null == futureResponse) {
             return "Such request does not even exist";
         }
@@ -35,8 +34,14 @@ public class ResultController {
 
         Response response = futureResponse.get();
 
-        String result = new String(response.toStringBuffer());
-        System.out.println(result);
-        return "Response: " + result;
+        StringBuffer stringBufferResult = response.toStringBuffer();
+        String rawResult = response.getResponseBody();
+
+        String responseText = "Response: "
+                + (stringBufferResult != null ? new String(stringBufferResult) : "null" )
+                + "RawResponse " + (rawResult != null ? rawResult : "null") ;
+        System.out.println(responseText);
+
+        return responseText;
     }
 }
